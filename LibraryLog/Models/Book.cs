@@ -7,6 +7,7 @@ namespace LibraryLog.Models
         [Key]
         public int Id { get; set; }
 
+        //validation rules which are mandatory
         [Required(ErrorMessage = "Description is required")]
         [MaxLength(64, ErrorMessage = "Length of description cannot be greater than 64 characters")]
         [MinLength(2, ErrorMessage = "Length of description cannot be less than 2 characters")]
