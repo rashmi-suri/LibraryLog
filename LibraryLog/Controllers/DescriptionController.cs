@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LibraryLog.Controllers
 {
     [ApiController]
-    [Route("[controller]")]//URL: http://localhost:5066/book
+    [Route("[controller]")]//URL: http://localhost:5066/desc
     public class DescriptionController : ControllerBase
     {
         private readonly ICrudService<BookDescription, int> _DescriptionService;
