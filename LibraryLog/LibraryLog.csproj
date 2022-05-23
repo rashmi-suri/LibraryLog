@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\DescriptionController.cs" />
+    <Compile Remove="Data\Repositories\DescriptionContext.cs" />
+    <Compile Remove="Data\Repositories\DescriptionRepository.cs" />
+    <Compile Remove="Models\BookDescription.cs" />
+    <Compile Remove="Services\DescriptionService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">

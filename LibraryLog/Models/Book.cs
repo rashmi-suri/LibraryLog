@@ -11,6 +11,10 @@ namespace LibraryLog.Models
         [Required(ErrorMessage = "Description is required")]
         [MaxLength(64, ErrorMessage = "Length of description cannot be greater than 64 characters")]
         [MinLength(2, ErrorMessage = "Length of description cannot be less than 2 characters")]
+        public string? Title { get; set; }
+
+        public int AuthorId { get; set; }
+        public string? publisher { get; set; }
         public string? Description { get; set; }
 
         [Required(ErrorMessage = "Status is required")]
