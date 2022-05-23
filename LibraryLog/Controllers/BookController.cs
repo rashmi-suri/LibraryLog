@@ -23,27 +23,27 @@ namespace LibraryLog.Controllers
         [HttpGet("{id}")]
         public ActionResult<Book> Get(int id)
         {
-            var todo = _BookService.Get(id);
-            if (todo is null) return NotFound();
-            else return todo;
+            var book = _BookService.Get(id);
+            if (book is null) return NotFound();
+            else return book;
         }
 
         // POST action
         [HttpPost]
-        public IActionResult Create(Book todo)
+        public IActionResult Create(Book book)
         {
             // Runs validation against model using data validation attributes
             if (ModelState.IsValid)
             {
-                _BookService.Add(todo);
-                return CreatedAtAction(nameof(Create), new { id = todo.Id }, todo);
+                _BookService.Add(book);
+                return CreatedAtAction(nameof(Create), new { id = book.Id }, book);
             }
             return BadRequest();
         }
 
         // PUT action
         [HttpPut("{id}")]
-        public IActionResult Update(int id, Book todo)
+        public IActionResult Update(int id, Book book)
         {
             var existingBook = _BookService.Get(id);
             if (existingBook is null || existingBook.Id != id)
@@ -52,7 +52,7 @@ namespace LibraryLog.Controllers
             }
             if (ModelState.IsValid)
             {
-                _BookService.Update(existingBook, todo);
+                _BookService.Update(existingBook, book);
                 return NoContent();
             }
             return BadRequest();
@@ -62,8 +62,8 @@ namespace LibraryLog.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var todo = _BookService.Get(id);
-            if (todo is null) return NotFound();
+            var book = _BookService.Get(id);
+            if (book is null) return NotFound();
             _BookService.Delete(id);
             return NoContent();
         }
