@@ -12,6 +12,10 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 builder.Services.AddScoped<ICrudRepository<Book, int>, BookRepository>();
 builder.Services.AddScoped<ICrudService<Book, int>, BookService>();
 
+// Add services to the container AUTHOR
+builder.Services.AddScoped<ICrudRepository<Author, int>, AuthorRepository>();
+builder.Services.AddScoped<ICrudService<Author, int>, AuthorService>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
