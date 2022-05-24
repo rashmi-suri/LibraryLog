@@ -33,7 +33,7 @@ public class AuthorController : ControllerBase
         if (ModelState.IsValid)
         {
             _AuthorService.Add(auth);
-            return CreatedAtAction(nameof(Create), new { id = auth.Id }, auth);
+            return CreatedAtAction(nameof(Create), new { id = auth.AuthorId }, auth);
         }
         return BadRequest();
     }
@@ -43,7 +43,7 @@ public class AuthorController : ControllerBase
     public IActionResult Update(int id, Author auth)
     {
         var existingAuthor = _AuthorService.Get(id);
-        if (existingAuthor is null || existingAuthor.Id != id)
+        if (existingAuthor is null || existingAuthor.AuthorId != id)
         {
             return BadRequest();
         }
