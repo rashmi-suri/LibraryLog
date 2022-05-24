@@ -14,6 +14,7 @@ namespace LibraryLog.Data
         //gets items to and from a table in the database
         //DbSet = collection of items named "Books"
         public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
     }
 
 }
