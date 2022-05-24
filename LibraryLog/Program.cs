@@ -4,6 +4,7 @@ using LibraryLog.Models;
 using LibraryLog.Services;
 using Microsoft.EntityFrameworkCore;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container BOOK
@@ -16,6 +17,17 @@ builder.Services.AddScoped<ICrudService<Book, int>, BookService>();
 builder.Services.AddScoped<ICrudRepository<Author, int>, AuthorRepository>();
 builder.Services.AddScoped<ICrudService<Author, int>, AuthorService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        });
+});
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -23,6 +35,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors(MyAllowSpecificOrigins);//To EnableCors - CrossOrigin
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
