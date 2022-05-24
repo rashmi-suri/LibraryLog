@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryLog.Models
 {
@@ -14,6 +15,7 @@ namespace LibraryLog.Models
         public string? Title { get; set; }
 
         public int AuthorId { get; set; }
+        [ForeignKey("AuthorId")]
         public string? publisher { get; set; }
         public string? Description { get; set; }
 
