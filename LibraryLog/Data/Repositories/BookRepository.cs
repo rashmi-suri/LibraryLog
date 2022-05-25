@@ -31,6 +31,20 @@ namespace LibraryLog.Data.Repositories
         {
             return _BookContext.Books.ToList();
         }
+
+        public IEnumerable<string> GetJoinedData()
+        {
+            List<Book> bookz = _BookContext.Books.ToList();
+            List<Author> authorz = _BookContext.Authors.ToList();
+
+            var result = from book in bookz
+                         join author in authorz
+                         on book.AuthorId equals author.AuthorId
+                         select $"Title: {book.Title} , Author Name:{author.Name}";
+            return result;
+
+        }
+
         public bool Save()
         {
             return _BookContext.SaveChanges() > 0;

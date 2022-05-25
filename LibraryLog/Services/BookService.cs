@@ -35,6 +35,11 @@ namespace LibraryLog.Services
             _BookRepository.Update(old);
             _BookRepository.Save();
         }
+
+        public IEnumerable<string> GetJoinedData()
+        {
+            return ((BookRepository)_BookRepository).GetJoinedData();
+        }
     }
 
 }

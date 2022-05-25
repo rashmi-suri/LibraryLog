@@ -13,6 +13,7 @@ namespace LibraryLog.Controllers
         public BookController(ICrudService<Book, int> bookService)
         {
             _BookService = bookService;
+            
         }
 
         // GET all action
@@ -27,6 +28,8 @@ namespace LibraryLog.Controllers
             if (book is null) return NotFound();
             else return book;
         }
+
+
 
         // POST action
         [HttpPost]
@@ -67,6 +70,12 @@ namespace LibraryLog.Controllers
             _BookService.Delete(id);
             return NoContent();
         }
+
+        [HttpGet]
+        [Route("info")]
+        public ActionResult<List<string>> GetInfo() => ((BookService)_BookService).GetJoinedData().ToList();
+
+
     }
 
 }
