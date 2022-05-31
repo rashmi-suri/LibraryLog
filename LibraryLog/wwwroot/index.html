@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <title>Library Log</title>
+    <script src="Scripts/librarylog.js"></script>
+    <link href="Styles/main.css" rel="stylesheet"/> 
+</head>
+
+<body onload="readBookItems()">
+
+    <div class="header">
+        <h1>Personal Library Log</h1>
+        <hr />
+        <form action="javascript:addNewBook()" style="margin-top: 10px">
+            <label for="newBookTitle">Please enter the Book Title</label>
+            <input type="text" id="newBookTitle" placeholder="Title...">
+            <input type="submit" value="Add" class="addButton" />
+        </form>
+    </div>
+
+    <ul id="booklist">
+        <!-- This list is empty at start and is populated by the readBooks() function
+             called by the onload trigger (see the body element above)
+         -->
+    </ul>
+</body>
+</html>
